@@ -1,0 +1,25 @@
+{
+  "name": "ProjectTwo",
+  "version": "1.0.0",
+  "description": "Repo for Project 2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkuebler12/ProjectTwo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tkuebler12/ProjectTwo/issues"
+  },
+  "homepage": "https://github.com/tkuebler12/ProjectTwo#readme",
+  "dependencies": {
+    "material": "^0.4.3",
+    "mysql": "^2.18.1",
+    "sequelize": "^6.6.1"
+  }
+}
