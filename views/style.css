@@ -1,3 +1,16 @@
-.navbar-light {
-
+.card-1 {
+    float: left;
+    margin: 50px auto;
+    margin-left: 15px auto;
+    padding: 5px 25px 18px;
+    height: 450px;
+    width: 100%;
+}
+.card-2 {
+    float: right;
+    margin: 50px auto;
+    margin-right: 15px auto;
+    padding: 5px 25px 18px;
+    height: 450px;
+    width: 100%;
 }
