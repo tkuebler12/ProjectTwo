@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/tkuebler12/ProjectTwo#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "material": "^0.4.3",
     "mysql": "^2.18.1",
-    "sequelize": "^6.6.1"
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.2"
   }
 }
