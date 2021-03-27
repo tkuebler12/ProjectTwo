@@ -22,6 +22,8 @@
     "material": "^0.4.3",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
+    "pokedex-promise-v2": "^3.3.0",
+    "pokemontcgsdk": "^2.0.0",
     "sequelize": "^6.6.2"
   }
 }

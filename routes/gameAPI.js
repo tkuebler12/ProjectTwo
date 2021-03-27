@@ -22,4 +22,3 @@ P.getPokemonByName('eevee') // with Promise
       console.log(response); // resource function accepts singles or arrays of URLs/paths
     });
 
-module.exports = (Pokedex());
