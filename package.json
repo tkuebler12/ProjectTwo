@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/tkuebler12/ProjectTwo#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "material": "^0.4.3",
     "mysql": "^2.18.1",
+    "pokemontcgsdk": "^2.0.0",
     "sequelize": "^6.6.1"
   }
 }
