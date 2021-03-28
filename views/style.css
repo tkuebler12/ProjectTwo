@@ -1,15 +1,19 @@
-.card-1 {
-    float: left;
-    margin: 50px auto;
-    margin-left: 15px auto;
-    padding: 5px 25px 18px;
-    height: 450px;
-    width: 100%;
+body{
+    background:url('https://wallpapercave.com/wp/uamtIrK.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size:cover;
+    background-size: cover;
 }
-.card-2 {
-    float: right;
+
+.nav-wrapper{
+    background-color:#335ABA !important;
+    color: #FFCC00
+}
+
+.card {
+    float: center;
     margin: 50px auto;
-    margin-right: 15px auto;
     padding: 5px 25px 18px;
     height: 450px;
     width: 100%;
