@@ -14,3 +14,7 @@ require('./routes/gameAPI.js')(app);
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}!`);
 });
+//implement handlebars
+//implement search.handlebars in view folder
+//create form with input box for character name as well as button
+// /search get request for search page

@@ -1,16 +1,26 @@
 //using pokemon sdk
 const pokemon = require('pokemontcgsdk');
 
-pokemon.configure({apiKey: '12e417e968-a16c-4330-bba3-93de7507eeb1'});
+pokemon.configure({apiKey: '9a554248-6793-4d43-8dfa-1faafabd553f'});
 
 
 module.exports = (app) => {
-   app.get('/api/character/:id', (req, res) => {
-        pokemon.card.find(req.params.id)
+    app.get('/api/character/:name', (req, res) => {
+        pokemon.card.find(req.params.name) 
         .then(card => {
             res.json(card) // "Charizard"
         })   
     })
+
+
+
+    app.get('/api/character/:id', (req, res) => {
+        pokemon.card.find(req.params.id) 
+        .then(card => {
+            res.json(card) // "Charizard"
+        })   
+    })
+
 
    /* app.get('/api/sets', (req, res) => {
         pokemon.sets.all({ q: 'series:base' })
