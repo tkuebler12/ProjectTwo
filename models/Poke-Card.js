@@ -5,7 +5,7 @@ $('#search-button').on('click', (event) => {
 
 
     $.ajax({
-        url: `/api/character/${name}`,
+        url: `/api/sets/${name}`,
         method: 'GET'
     }).then(data => {
         //display this for the user
