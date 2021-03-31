@@ -1,11 +1,11 @@
 const express = require('express');
-const expb = require('express-handlebars');
+const expbs = require('handlebars');
 // import sequelize connection
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-app.engine('handlebars', expbs({defaultLayour: 'main'}));
+// app.engine('handlebars', expbs({defaultLayour: 'main'}));
 app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
