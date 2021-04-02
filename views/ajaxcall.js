@@ -1,8 +1,7 @@
-/*$('#search-button').on('click', (event) => {
+$('#search-button').on('click', (event) => {
     event.preventDefault();
     let name = $('#pokename').val().trim();
-    if (name === '') return;*/
-
+    if (name === '') return;
 
   
     const apiKey = "9a554248-6793-4d43-8dfa-1faafabd553f";
@@ -13,6 +12,5 @@
             headers: { "APIkey": apiKey },
         }).then(data => {
             console.log(data)
-            
         })
-    //})
+    });
