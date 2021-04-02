@@ -1,13 +1,8 @@
-// //using pokemon sdk
-// const pokemon = require('pokemontcgsdk');
-
-// pokemon.configure({apiKey: '12e417e968-a16c-4330-bba3-93de7507eeb1'});
-
-
 const router = require('express').Router();
 const { card } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const newCard = await card.create({
       ...req.body,
@@ -20,7 +15,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const cardData = await card.destroy({
       where: {
