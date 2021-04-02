@@ -1,21 +1,4 @@
-/*$('#search-button').on('click', (event) => {
-    event.preventDefault();
-    let name = $('#pokename').val().trim();
-    if (name === '') return;*/
 
-
-  
-    // const apiKey = "9a554248-6793-4d43-8dfa-1faafabd553f";
-   
-    // $.ajax({
-    //         url: "https://api.pokemontcg.io/v2/cards",
-    //         method: 'GET',
-    //         headers: { "APIkey": apiKey },
-    //     }).then(data => {
-    //         console.log(data)
-            
-    //     })
-    //})
    
 
     $(document).ready(function(){
@@ -56,30 +39,7 @@
                 getPokemonDescription(userInput);
                 getPokemon(response.coord.lat, response.coord.lon);
             });
-        }
-        // function getPokemon(userInput) {
-        //     var queryURL = "https://api.pokemontcg.io/v2/cards" + userInput + "&appid=9a554248-6793-4d43-8dfa-1faafabd553f=imperial";
-        //     $.ajax({
-        //         url: queryURL,
-        //         method:"GET"
-        //     }).then(function(response) {
-        //         $(".name").html("<h4>Name</h4>").append("<div class=\"row\">");
-        //         console.log(response); 
-        //         for (var i = 0; i < response.list.length; i++){
-        //             if (response.list[i].dt_txt.indexOf("") !== -1) {
-        //                 var col = $("<div>").addClass("col-md-2");
-        //                 var card = $("<div>").addClass("card bg-primary text-white");
-        //                 var body = $("<div>").addClass("card-body p-2");
-        //                 var title = $("<h5>").addClass("card-title").text(new Date(response.list[i].dt_txt).toLocaleDateString());
-        //                 var image = $("<img>").attr("src", "https://api.pokemontcg.io/v2/cards" + response.list[i].name[0] + ".png");
-        //                 var p1 = $("<p>").addClass("card-text").text("Description: " + response.list[i].main.description);
-        //                 var p2 = $("<p>").addClass("card-text").text("Special Power: " + response.list[i].main.power);
-        //                 col.append(card.append(body.append(title, image, p1, p2)));
-        //                 $(".name .row").append(col);
-        //             }
-        //         }
-        //     });
-        // }
+       
     var searchHistory = JSON.parse(window.localStorage.getItem("history")) || [];
     if (searchHistory > 0) {
         getPokemon(searchHistory[searchHistory.length - 1])
@@ -88,3 +48,12 @@
         makeRow(searchHistory[i])
     }
     })
+    $.ajax({
+            url: "https://api.pokemontcg.io/v2/cards",
+            method: 'GET',
+            headers: { "APIkey": apiKey },
+        }).then(data => {
+            console.log(data)
+        })
+    });
+

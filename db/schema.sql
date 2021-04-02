@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS crowdfund_db;
-CREATE DATABASE crowdfund_db;
+DROP DATABASE IF EXISTS pokeuser_db;
+CREATE DATABASE pokeuser_db;

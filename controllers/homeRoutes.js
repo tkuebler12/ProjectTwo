@@ -2,10 +2,12 @@ const router = require('express').Router();
 const { Project, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+
+//GET USER CARDS 
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
-    const projectData = await Project.findAll({
+    // Get all pokecards and JOIN with user data
+    const pokeData = await Project.findAll({
       include: [
         {
           model: User,
@@ -27,7 +29,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/project/:id', async (req, res) => {
+router.get('/pokemon/:id', async (req, res) => {
   try {
     const projectData = await Project.findByPk(req.params.id, {
       include: [

@@ -1,8 +1,15 @@
 const router = require('express').Router();
+const fetch = require('node-fetch');
+const Pokemon = require ('pokemontcgsdk');
+fetch.Promise = Pokemon;
 const { card } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/', withAuth, async (req, res) => {
+
+
+
+
+/*router.post('/', withAuth, async (req, res) => {
   try {
     const newCard = await card.create({
       ...req.body,
@@ -13,7 +20,7 @@ router.post('/', withAuth, async (req, res) => {
   } catch (err) {
     res.status(400).json(err);
   }
-});
+});*/
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
