@@ -1,17 +1,18 @@
-<div id="pokemon"></div>
+/*$('#search-button').on('click', (event) => {
+    event.preventDefault();
+    let name = $('#pokename').val().trim();
+    if (name === '') return;*/
 
-var queryURL = "https://pokeapi.co/api/v2/pokemon/ditto";
 
-function searchPokemon() {
+  
+    const apiKey = "9a554248-6793-4d43-8dfa-1faafabd553f";
+   
     $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function(response){
-
-        console.log(response);
-
-        var pokemonName = $("h1").text(response.name);
-        
-        $("#pokemon").text(JSON.stringify(response));
-    });
-};
+            url: "https://api.pokemontcg.io/v2/cards",
+            method: 'GET',
+            headers: { "APIkey": apiKey },
+        }).then(data => {
+            console.log(data)
+            
+        })
+    //})
