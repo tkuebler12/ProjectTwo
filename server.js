@@ -22,8 +22,8 @@ app.get('/', (req, res) => {
 });
 
 
-require('./routes/cardAPI.js')(app);
-require('./routes/gameAPI.js')(app);
+require('./routes/cardRoute.js')(app);
+require('./routes/gameRoute.js')(app);
 
 // sync sequelize models to the database, then turn on the server
 app.listen(PORT, () => {
