@@ -47,7 +47,7 @@
     for (var i = 0; i < searchHistory.length; i++) {
         makeRow(searchHistory[i])
     }
-    })
+    }
     $.ajax({
             url: "https://api.pokemontcg.io/v2/cards",
             method: 'GET',

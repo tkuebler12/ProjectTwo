@@ -7,7 +7,8 @@
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<!-- Compiled and minified JavaScript -->
+    
+    <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="style.css">
                 
@@ -28,22 +29,8 @@
 
 <body>
 
-<nav>
-<div class="nav-wrapper">
-  <form>
-    <div class="input-field">
-      <input id="userInput" type="search" required>
-      <label class="label-icon" for="search"><i class="material-icons">Please Enter a Pokemon</i></label>
-      <button class="btn waves-effect waves-light" id="searchButton" type="submit" name="action">Go!
-        <i class="material-icons right"></i>
-      </button>
-      <i class="material-icons">search</i>
-    </div>
-  </form>
-</div>
-</nav>
+<!-- Materialize Card -->
 
-<!-- materalize card -->
 <div class="row">
   <div class="col s12 m7">
     <div class="card">
@@ -52,32 +39,41 @@
         <span class="card-title"></span>
       </div>
       <div class="card-content">
-        <p>I am a very simple card. I am good at containing small bits of information.
-        I am convenient because I require little markup to use effectively.</p>
+        <p>Register an Account</p>
       </div>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input placeholder="First Name" id="first_name" type="text" class="validate">
+              <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input placeholder="Last Name" id="last_name" type="text" class="validate">
+              <label for="last_name">Last Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="email" type="email" class="validate">
+              <label for="email">Email</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="password" type="password" class="validate">
+              <label for="password">Password</label>
+            </div>
+          </div>
       <div class="card-action">
-        <a href="#">This is a link</a>
+        <a href="#">Create Account</a>
       </div>
     </div>
   </div>
 </div>
-          
 
-
-<!-- <div class="row">
-<div class="col s12 m6">
-  <div class="card blue-grey darken-1">
-    <div class="card-content white-text">
-      <span class="card-title">Pokemon Name</span>
-      <p>This card will hold the image and description of the searched Pokemon</p>
-    </div>
-    <div class="card-action">
-      <a href="#">Add to Collection</a>
-    </div>
-  </div>
-</div>
-</div> -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="./ajaxcall.js"></script>
+
 </body>
 </html>
