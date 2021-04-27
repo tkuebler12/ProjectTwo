@@ -1,6 +1,4 @@
 
-   
-
     $(document).ready(function(){
         $("#searchButton").on("click", function(){
             var input = $("#userInput").val();
@@ -35,7 +33,7 @@
                 div.append(image);
                 var results = $("#results");
                 results.html("<img src='https://api.pokemontcg.io/v2/cards'>");
-                results.append(image);
+                results.append(image);  
                 getPokemonDescription(userInput);
                 getPokemon(response.coord.lat, response.coord.lon);
             });
@@ -48,10 +46,10 @@
         makeRow(searchHistory[i])
     }
     }
-    $.ajax({
+     $.ajax({
             url: "https://api.pokemontcg.io/v2/cards",
             method: 'GET',
-            headers: { "APIkey": apiKey },
+            headers: { "APIkey": apiKey = '9a554248-6793-4d43-8dfa-1faafabd553f'},
         }).then(data => {
             console.log(data)
         })
