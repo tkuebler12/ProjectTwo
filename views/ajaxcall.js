@@ -18,11 +18,10 @@
                 url: queryURL,
                 method:"GET"
             }).then(function(response) {
-                // if (searchHistory.indexOf(userInput) === -1) {
-                //     searchHistory.push(userInput);
-                //     window.localStorage.setItem("history", JSON.stringify(searchHistory));
-                //     makeRow(userInput);
-                // }
+            //    add for loop here
+
+            // pull poke name, image and description
+            
                 $(".card-title").html("<h1>" + response.name + "-" + " Pokemon Name</h1>");
                 $(".description").text("Description: " + (response.main.description));
                 $(".power").text("Special Power: " + response.main.power);
