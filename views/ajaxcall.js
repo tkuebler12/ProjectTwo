@@ -13,12 +13,14 @@
             $(".history").append(li);
         }
         function getPokemon(userInput) {
-            var queryURL = "https://api.pokemontcg.io/v2/cards?q=!name:"+ userInput + "&appid=9a554248-6793-4d43-8dfa-1faafabd553f";
+            var queryURL = "https://api.pokemontcg.io/v2/cards?q=!name: "+ userInput+"" ;
             $.ajax({
                 url: queryURL,
-                method:"GET"
+                method:"GET",
+                headers: { "APIkey": apiKey = '9a554248-6793-4d43-8dfa-1faafabd553f'},
+
             }).then(function(response) {
-            //    add for loop here
+        
 
             // pull poke name, image and description
             
@@ -27,7 +29,7 @@
                 $(".power").text("Special Power: " + response.main.power);
                 $(".date").text("Date: " + response.date);
                 console.log(response);
-                var image = $("<img>").attr("src", "https://api.pokemontcg.io/v2/cards" + response.card[0] + ".png");
+                var image = $("<img>").attr("src", "https://api.pokemontcg.io/v2/cards" + response.card[1] + ".png");
                 var div = $("<div>");
                 div.append(image);
                 var results = $("#results");
