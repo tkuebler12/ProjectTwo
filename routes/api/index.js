@@ -5,6 +5,6 @@ const gameRoute = require('./gameRoute');
 
 router.use('/users', userRoutes);
 router.use('/pokemon', cardAPI);
-app.use('/gameRoute', gameRoute);
+app.get('/gameRoute', gameRoute);
 
 module.exports = router;

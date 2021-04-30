@@ -1,4 +1,4 @@
-const router = require('express').Router();
+const router = require('express').Router()
 
 const Pokedex = require('pokedex-promise-v2');
 const P = new Pokedex();
