@@ -22,7 +22,7 @@
             }).then(function(response) {
                
                 
-                console.log(items);
+          
 
             // pull poke name, image and description
             
@@ -60,8 +60,10 @@
                 items.push({
                     name: item.name
                 });
-            }
+      
             console.log(items)
+
+            console.log(items.Array.charizard)
             
         })
     });
