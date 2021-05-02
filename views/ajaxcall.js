@@ -20,7 +20,9 @@
                 headers: { "APIkey": apiKey = '9a554248-6793-4d43-8dfa-1faafabd553f'},
 
             }).then(function(response) {
-        
+               
+                
+                console.log(items);
 
             // pull poke name, image and description
             
@@ -52,7 +54,15 @@
             method: 'GET',
             headers: { "APIkey": apiKey = '9a554248-6793-4d43-8dfa-1faafabd553f'},
         }).then(data => {
-            console.log(data)
+            var items = [];
+
+            for (var item of data.data) {
+                items.push({
+                    name: item.name
+                });
+            }
+            console.log(items)
+            
         })
     });
 
