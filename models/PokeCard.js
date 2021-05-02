@@ -14,7 +14,7 @@ Pokemon.init(
         type: DataTypes.STRING,
         allowNull: false,
       },
-      card: {
+      images: {
         type: DataTypes.STRING,
         allowNull: false,
       },

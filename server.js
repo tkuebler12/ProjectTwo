@@ -1,7 +1,8 @@
 const express = require('express');
+const { sequelize } = require('./models/PokeCard');
 
 // import sequelize connection
-
+const sequelize = require('./config/connection');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
