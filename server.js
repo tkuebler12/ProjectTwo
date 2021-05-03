@@ -11,6 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 
 require('./routes/api/cardAPI')(app);
 require('./routes/api/gameRoute')(app);
+require('./routes/api/userRoutes');
 
 // sync sequelize models to the database, then turn on the server
 sequelize.sync({ force: true }).then(
