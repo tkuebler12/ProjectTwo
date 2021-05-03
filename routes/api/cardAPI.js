@@ -11,7 +11,7 @@ module.exports = (app) => {
       .then(cards => {
         console.log(cards);
         cards.forEach(element => {
-          Pokemon.create({ id: element.id, name: element.name, images: element.images })
+          Pokemon.create({ name: element.name, images: element.images.small })
         });
         res.json(cards)
       })
