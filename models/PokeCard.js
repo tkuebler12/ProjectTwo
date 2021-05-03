@@ -1,7 +1,7 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
-class Pokemon extends Model { }
+class Pokemon extends Model {}
 Pokemon.init(
   {
     name: {
@@ -27,6 +27,7 @@ Pokemon.init(
     underscored: true,
     modelName: 'Pokemon',
   }
+
 );
 
 module.exports = Pokemon;
