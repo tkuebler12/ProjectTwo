@@ -1,19 +1,24 @@
 const router = require('express').Router()
 
-const pokemon = require('pokemontcgsdk');
+//const pokemon = require('pokemontcgsdk');
 
 const { Pokemon } = require('../../models');
 
+// "/api/pokecard"
+
 //pulls all the cards
 module.exports = (app) => {
-  app.get('/api/pokecard/:name', (req, res) => {
+  app.get('/:name', (req, res) => {
     pokemon.card.all(req.params.name)
       .then(cards => {
-        console.log(cards);
+        //console.log(cards);
         cards.forEach(element => {
           Pokemon.create({ name: element.name, images: element.images.small })
         });
-        res.json(cards)
+
+        // var temp = cards.filter((c) => c.name === req.params.name);
+        // console.log("temp: ", +temp);
+        res.json(cards);
       })
   })
 }
