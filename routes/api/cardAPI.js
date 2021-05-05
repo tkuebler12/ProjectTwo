@@ -1,32 +1,38 @@
-const router = require('express').Router()
+// const router = require('express').Router()
 
-//const pokemon = require('pokemontcgsdk');
+// const pokemon = require('pokemontcgsdk');
 
-const { Pokemon } = require('../../models');
+// const { Pokemon } = require('../../models');
 
-// "/api/pokecard"
+// // "/api/pokecard"
 
-//pulls all the cards
+// //pulls all the cards
+// module.exports = (app) => {
+//   app.get('/:name', (req, res) => {
+//     pokemon.card.all(req.params.name)
+//       .then(cards => {
+//         //console.log(cards);
+//         cards.forEach(element => {
+//           Pokemon.create({ name: element.name, images: element.images.small })
+//         });
+
+//         // var temp = cards.filter((c) => c.name === req.params.name);
+//         // console.log("temp: ", +temp);
+//         res.json(cards);
+//       })
+//   })
+// }
+
+
+
+const router = require("express").Router();
+const { Pokemon } = require("../../models");
 module.exports = (app) => {
-  app.get('/:name', (req, res) => {
-    pokemon.card.all(req.params.name)
-      .then(cards => {
-        //console.log(cards);
-        cards.forEach(element => {
-          Pokemon.create({ name: element.name, images: element.images.small })
-        });
-
-        // var temp = cards.filter((c) => c.name === req.params.name);
-        // console.log("temp: ", +temp);
-        res.json(cards);
-      })
-  })
+  app.get('/PokeCard/:name', (req, res) => {
+    Pokemon.findAll(req.name)
+      .then(e => res.json(e));
+  });
 }
-
-
-
-
-
 
 
 /*router.post('/', withAuth, async (req, res) => {
