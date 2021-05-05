@@ -1,17 +1,17 @@
 const router = require('express').Router();
-const { Project, User } = require('../models');
-const withAuth = require('../utils/auth');
+const { Pokemon, User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 
 //GET USER CARDS 
 router.get('/', async (req, res) => {
   try {
     // Get all pokecards and JOIN with user data
-    const pokeData = await Project.findAll({
+    const pokeData = await Pokemon.findAll({
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['name', 'images'],
         },
       ],
     });
@@ -29,21 +29,21 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/pokemon/:id', async (req, res) => {
+router.get('/PokemonCard/:name', async (req, res) => {
   try {
-    const projectData = await Project.findByPk(req.params.id, {
+    const pokeData = await Pokemon.findOne(req.params.name, {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['name', 'images'],
         },
       ],
     });
 
-    const project = projectData.get({ plain: true });
+    const pokemon = pokeData.get({ plain: true });
 
-    res.render('project', {
-      ...project,
+    res.render('pokemon', {
+      ...pokemon,
       logged_in: req.session.logged_in
     });
   } catch (err) {
