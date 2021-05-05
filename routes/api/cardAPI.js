@@ -29,7 +29,11 @@ const router = require("express").Router();
 const { Pokemon } = require("../../models");
 module.exports = (app) => {
   app.get('/PokeCard/:name', (req, res) => {
-    Pokemon.findAll(req.name)
+    Pokemon.findOne({
+      where: {
+        name: req.params.name
+      }
+    })
       .then(e => res.json(e));
   });
 }
