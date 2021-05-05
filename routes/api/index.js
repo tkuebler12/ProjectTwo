@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const userRoutes = require('./userRoutes');
 const cardAPI = require('./cardAPI');
-const gameRoute = require('./gameRoute');
+const homeRoutes = require('./homeRoutes');
 
 router.use('/users', userRoutes);
 router.use('/pokemon', cardAPI);
-app.get('/gameRoute', gameRoute);
+router.use('/homepage', homeRoutes);
 
 module.exports = router;
