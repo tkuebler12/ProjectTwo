@@ -1,23 +1,22 @@
-
-
 const router = require("express").Router();
 const { Pokemon } = require("../../models");
-const withAuth = require('../../utils/auth');
-module.exports = (app) => {
-  app.get('/PokeCard/:name', (req, res) => {
-    Pokemon.findOne({
+const withAuth = require('../../utils/apiAuth');
+
+
+router.get('/:name', withAuth, (req, res) => {
+    Pokemon.findAll({
       where: {
         name: req.params.name
       }
     })
       .then(e => res.json(e));
   });
-}
+
 
 
 router.post('/', withAuth, async (req, res) => {
   try {
-    const newCard = await card.create({
+    const newCard = await Pokemon.create({
       ...req.body,
       user_id: req.session.user_id,
     });
@@ -30,7 +29,7 @@ router.post('/', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const cardData = await card.destroy({
+    const cardData = await Pokemon.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
