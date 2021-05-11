@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { Pokemon, User } = require('../../models');
+const { User, Pokemon } = require('../../models');
 
 const withAuth = require('../../utils/auth');
 
 
 //GET USER CARDS 
-router.get('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     // Get all pokecards and JOIN with user data
     const pokeData = await Pokemon.findAll({
@@ -20,17 +20,17 @@ router.get('/', async (req, res) => {
     // Serialize data so the template can read it
     const pokemon = Pokemon.map((pokemon) => pokemon.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      projects, 
-      logged_in: req.session.logged_in 
+    //Pass serialized data and session flag into template
+    res.render('homepage', {
+      pokemon,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/PokemonCard/:name', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const pokeData = await Pokemon.findOne(req.params.name, {
       include: [
@@ -53,17 +53,17 @@ router.get('/PokemonCard/:name', async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
+      include: [{ model: Pokemon }],
     });
 
     const user = userData.get({ plain: true });
 
-    res.render('profile', {
+    res.render('pokemon', {
       ...user,
       logged_in: true
     });
@@ -75,7 +75,7 @@ router.get('/profile', withAuth, async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/');
     return;
   }
 

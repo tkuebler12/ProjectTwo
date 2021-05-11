@@ -3,7 +3,7 @@ const { Pokemon } = require("../../models");
 const withAuth = require('../../utils/apiAuth');
 
 
-router.get('/:name', withAuth, (req, res) => {
+router.get('/:name', (req, res) => {
     Pokemon.findAll({
       where: {
         name: req.params.name
