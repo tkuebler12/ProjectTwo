@@ -4,13 +4,14 @@ const withAuth = require('../../utils/apiAuth');
 
 
 router.get('/:name', (req, res) => {
-    Pokemon.findAll({
-      where: {
-        name: req.params.name
-      }
-    })
-      .then(e => res.json(e));
-  });
+  console.log(req.params.name)
+  Pokemon.findAll({
+    where: {
+      name: req.params.name
+    }
+  })
+    .then(e => res.json(e));
+});
 
 
 
