@@ -1,3 +1,5 @@
+//Adding cards element
+
 async function newPokemonCard(event) {
 
     const pokemon_name = document.querySelector('#pokemon_name').value.trim();
@@ -13,6 +15,7 @@ async function newPokemonCard(event) {
     getCards().then(cards => {
         for (let i = 0; i < cards.length; i++) {
             console.log(cards[i]);
+
         }
     });
 
