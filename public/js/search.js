@@ -16,31 +16,33 @@ async function newPokemonCard(event) {
     console.log(container);
     for (let i = 0; i < cards.length; i++) {
       console.log(cards[i]);
+      let div = document.createElement("div");
       let img = document.createElement("img");
+      let button = document.createElement("button");
+      button.setAttribute("class", "btn waves-effect waves-light");
+      button.setAttribute("id", "save-card");
+      button.setAttribute("data-id", cards[i].id);
+      button.textContent = "Save";
+      div.appendChild(img);
+      div.appendChild(button);
       img.setAttribute("src", cards[i].images);
-      container.appendChild(img);
-
-      // let container = document.getElementById("image-container");
-      // console.log(container);
-    //   let row = document.createElement("div");
-    //   row.setAttribute("class", "row");
-    //   console.log(row);
-    //   container.appendChild(row);
-    //   let col = document.createElement("div");
-    //   col.setAttribute("class", "col s12 m6");
-    //   row.appendChild(col);
-    //   let card = document.createElement("div");
-    //   col.setAttribute("class", "card");
-    //   col.appendChild(card);
+      container.appendChild(div);
     }
+    document.querySelectorAll("#save-card").forEach((element) => {
+      element.addEventListener("click", saveCard);
+    });
   });
+}
 
-  //console.log(cards);
-  // if (response.ok) {
-  //     const cards = response.json();
-  // } else {
-  //     alert("Error!");
-  // }
+async function saveCard(event) {
+  const response = await fetch('/api/pokemon/save/'+event.target.getAttribute("data-id"), {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+  if (response.ok) event.target.textContent="Saved";
 }
 
 document.querySelector("#search-btn").addEventListener("click", newPokemonCard);
+
